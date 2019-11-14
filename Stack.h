@@ -5,8 +5,15 @@
 #ifndef PROJECT7_STACK_H
 #define PROJECT7_STACK_H
 
+#include "LinkedList.h"
+#include "Data.h"
+
 using namespace std;
-class Stack {
+class Stack : public LinkedList {
+public:
+    Stack(); //default constructor
+    void push_head(Data& da);
+    bool pop_head(Data& da);
 
 };
 
