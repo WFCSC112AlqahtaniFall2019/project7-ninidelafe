@@ -8,15 +8,16 @@
 
 using namespace std;
 
+//creates a default constructor for the data
 Data::Data() {
     country = "";
-    happinessRank = 0;
+    happinessRank = 0.0;
     happinessScore = 0.0;
     GDPperCapita = 0.0;
     lifeExpectancy = 0.0;
 }
-
-Data::Data(string c, int r, double s, double g, double l) {
+//creates an alternate constructor for when the data is inputted through parameters
+Data::Data(string c, double r, double s, double g, double l) {
     country = c;
     happinessRank = r;
     happinessScore = s;
@@ -25,21 +26,19 @@ Data::Data(string c, int r, double s, double g, double l) {
 
 }
 
-//overloads the outstream operator; but I think this is wrong; how do i get my data to make itself into a linked list?
-//that should then be printed through this overload right?
-//based on one found online
+//overloads the outstream operator
 ostream& operator<<(ostream& os, const Data& pr) {
-    os << pr.country << ": " << pr.happinessRank<< ", " << pr.happinessScore<< ", "<< pr.GDPperCapita<< ", "<< pr.lifeExpectancy;
+    os << pr.country << ": " << pr.happinessRank<< ", " << pr.happinessScore<< "," << pr.GDPperCapita << ", "<< pr.lifeExpectancy;
     return os;
 }
 
-//overloads > for happiness rank
-// do I need overloaded operators for every variable? or how can i make this work for any variable type?
-bool Data:: operator < (Data hr){
-    if (this->happinessRank > hr.happinessRank){
+//overloads < operator for happiness rank? maybe GDPperCapita
+bool Data:: operator < (Data& hr){
+    //return this->GDPperCapita < hr.GDPperCapita;
+    if (this->GDPperCapita > hr.GDPperCapita){
         return false;
     }
-    else if (this->happinessRank < hr.happinessRank){
+    else if (this->GDPperCapita < hr.GDPperCapita){
         return true;
     }
     else{
@@ -47,10 +46,17 @@ bool Data:: operator < (Data hr){
     }
 }
 
-//Dont know if i need these or not
-bool Data::operator>(Data hr) {
-    return happinessRank>hr.happinessRank;
+
+bool Data::operator>=(Data& hr) {
+    return this->GDPperCapita>hr.GDPperCapita;
 }
+
+bool Data::operator>(Data& hr) {
+    return this->GDPperCapita>hr.GDPperCapita;
+}
+
+
+/*//Dont know if i need these or not
 void Data::setCountry(string c) {
     country = c;
 }
@@ -80,4 +86,4 @@ void Data::setLifeExpectancy(double le){
 }
 double Data:: getLifeExpectancy() {
     return lifeExpectancy;
-}
+}*/

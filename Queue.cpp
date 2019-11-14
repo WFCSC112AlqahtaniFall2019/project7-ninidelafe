@@ -11,24 +11,22 @@ Queue::Queue() {
     //front = nullptr;
 }
 
-//a member public function named “enqueue_tail” takes in a Data object, creates a Node pointer, and inserts
-//it into the Queue at the tail of the list.
-void Queue::enqueue_tail(Data &da) {
+//takes in a Data object and creates a Node pointer and then inserts it at the end of the list.
+void Queue::enqueue_tail(Data da) {
     Node* temp = new Node(da);
     //if the list is empty
-    if(head == nullptr){ //case 1: the queue is empty.
+    if(tail == nullptr){
         head = temp;
         tail = temp;
     }
-    //WRITE A NOTE HERE!!
+    //if the list is not empty
     else {
-        temp->next = temp;
+        tail->next = temp;
         tail = temp;
     }
 }
 
-//a member public function named “dequeue_head” removes a Data object pointed to by the head pointer;
-//returns a boolean with value true if the list is not empty, false if the list is empty.
+//Removes a Data object pointed to by the head pointer and returns true if list is full or false if empty
 bool Queue::dequeue_head() {
     Node* del = head;
     if(head!= nullptr){

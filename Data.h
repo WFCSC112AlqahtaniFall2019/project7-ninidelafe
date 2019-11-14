@@ -13,11 +13,14 @@ using namespace std;
 class Data {
 public:
     Data ();
-    Data(string c, int r, double s, double g, double l);
+    Data(string c, double r, double s, double g, double l);
     friend ostream& operator<<(ostream& os, const Data& pr);
-    bool operator > (Data hr);
-    bool operator < (Data hr);
-    void setCountry (string c);
+    bool operator >= (Data& hr);
+    bool operator < (Data& hr);
+    bool operator > (Data& hr);
+
+
+    /*void setCountry (string c);
     string getCountry();
     void sethappinessRank (double r);
     double gethappinessRank();
@@ -26,12 +29,12 @@ public:
     void setGDP(double g);
     double getGDP();
     void setLifeExpectancy(double le);
-    double getLifeExpectancy();
+    double getLifeExpectancy();*/
 
 
 private:
     string country;
-    int happinessRank;
+    double happinessRank;
     double happinessScore;
     double GDPperCapita;
     double lifeExpectancy;

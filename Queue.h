@@ -10,7 +10,7 @@ using namespace std;
 class Queue : public LinkedList {
 public:
     Queue();//default constructor
-    void enqueue_tail(Data& da);
+    void enqueue_tail(Data da);
     bool dequeue_head();
 
 

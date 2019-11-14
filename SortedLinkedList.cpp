@@ -6,38 +6,37 @@
 #include "SortedLinkedList.h"
 using namespace std;
 
-
-//includes a member public function named “insertSorted” takes in a Data object, creates a Node pointer, and
-// inserts it into the Sorted Linked List at the appropriate place in the list as determined by the comparison
-// operators you will overload in the Data class. You are encouraged to reuse your code from InsertionSort project.
+//creates a Node pointer and inserts it into a sorted List at the correct place based on the overloaded comparison
+//comparison operators in Data.cpp
 void SortedLinkedList::insertSorted(Data &da) {
 
     Node *newData = new Node(da);
-
+    //if the list is empty
     if (head == nullptr) {
         head = newData;
-
+    //if not empty all of the below is run to insert the node in the new location
     } else {
         Node *current = head;
-        int count = 0;
         Node *previous = nullptr;
-        bool sorted;
 
-        if (current->data > newData->data) {
+        //current->data > newData->data
+        if (newData->data < current->data) {
             newData->next = head;
             head = newData;
             return;
         }
-        //or keeps searching
+        //keeps searching for the correct location and going through the list
         previous = current;
-        current = current->next;//keep iterating
+        current = current->next;
 
         while (current) {
-            if (newData->data > current->data) {
+            //newData->data > current->data
+            if (current->data < newData->data) {
                 previous = current;
-                current = current->next;
             }
+            current = current->next;
         }
+
         Node *temp = current;
         newData->next = current;
         previous->next = newData;
