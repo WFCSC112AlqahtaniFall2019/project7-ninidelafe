@@ -1,7 +1,6 @@
 #include <iostream>
-#include <fstream>
+
 #include "Data.h"
-#include "LinkedList.h"
 #include "Stack.h"
 #include "Queue.h"
 #include "SortedLinkedList.h"
@@ -20,11 +19,10 @@ int main() {
     ofstream outQueue;
     ofstream outSorted;
 
-    in.open ("World Happiness Report 2015.csv");
+    in.open ("../WorldHappines2015.csv");
     outStack.open("Stack.txt");
     outQueue.open("Queue.txt");
     outSorted.open("Sorted.txt");
-
     if(!in.is_open()){
         cout<<"Input file did not open!!"<<endl;
         return 1;
@@ -42,6 +40,13 @@ int main() {
         return 4;
     }
 
+//getline will go until the comma then will move on
+    string crty, haprate, hapscor, GDP, lifeExpec;
+    getline(in, crty, ',');
+    getline(in, haprate, ',');
+    getline(in, hapscor, ',');
+    getline(in, GDP, ',');
+    getline(in, lifeExpec);
     while (!in.eof()) {
 
         //getline will go until the comma then will move on
@@ -50,7 +55,7 @@ int main() {
         getline(in, haprate, ',');
         getline(in, hapscor, ',');
         getline(in, GDP, ',');
-        getline(in, lifeExpec, '\n');
+        getline(in, lifeExpec );
 
 
         int rating = stoi(haprate); //change into integer
@@ -65,9 +70,9 @@ int main() {
         other=info;
     }
 
-    topToBottom->print(outStack);
-    line->print(outQueue);
-    sortedList->print(outSorted);
+    topToBottom->print(outStack,other);
+    line->print(outQueue,other);
+    sortedList->print(outSorted,other);
 
     while (topToBottom->pop_head(other));
     while (line->dequeue_head());

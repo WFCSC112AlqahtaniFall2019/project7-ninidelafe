@@ -5,7 +5,6 @@
  */
 #include <string>
 #include <iostream>
-#include <fstream>
 #include "LinkedList.h"
 using namespace std;
 
@@ -38,7 +37,7 @@ const LinkedList& LinkedList::operator=(LinkedList rhs) {
     return *this;
 }
 
-void LinkedList::print(ostream &os) {
+void LinkedList::print(ostream &os, const Data& pr) {
     // start at the head of the list
     Node *curr = head;
     while (curr != nullptr) {

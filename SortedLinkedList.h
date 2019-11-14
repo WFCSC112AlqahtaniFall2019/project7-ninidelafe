@@ -12,7 +12,6 @@
 using namespace std;
 class SortedLinkedList : public LinkedList {
 public:
-    SortedLinkedList();
     void insertSorted(Data& da);
 
 

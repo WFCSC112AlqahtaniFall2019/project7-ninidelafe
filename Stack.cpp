@@ -5,13 +5,13 @@
 #include "Stack.h"
 
 Stack::Stack(){
-
+  head= nullptr;
 }
 //a member public function named “push_head” takes in a Data object, creates a Node pointer, and inserts it into
 // the Stack at the head of the list,
 void Stack::push_head(Data& da){
     Node *newHead = new Node(da);
-    if (head->data.getCountry()=="") {
+    if (head == nullptr) {
         head = newHead;
     }
     else {

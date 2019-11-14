@@ -19,6 +19,7 @@ public:
     Node(Data &d)
     {
         data = d;
+        next= nullptr;
     }
 };
 
@@ -29,7 +30,7 @@ public:
     LinkedList();
     LinkedList(const LinkedList& list);
     const LinkedList& operator=(LinkedList rhs);
-    void print(ostream &os);
+    void print(ostream &os, const Data& pr);
     void pop_head();
     ~LinkedList();
 };

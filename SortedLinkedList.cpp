@@ -16,10 +16,9 @@ void SortedLinkedList::insertSorted(Data &da) {
 
     if (head == nullptr) {
         head = newData;
-        //if the list is empty, no sorting necessary
-        //if there is only one element in the list, it is already sorted
+
     } else {
-        Node *current = head; //to cycle over list to find elements not sorted
+        Node *current = head;
         int count = 0;
         Node *previous = nullptr;
         bool sorted;
@@ -27,19 +26,18 @@ void SortedLinkedList::insertSorted(Data &da) {
         if (current->data > newData->data) {
             newData->next = head;
             head = newData;
-            return; //end the class because found where it goes
+            return;
         }
-        //otherwise continue searching
+        //or keeps searching
         previous = current;
         current = current->next;//keep iterating
 
         while (current) {
-            if (newData->data > current->data) { //the next one is still larger so don't need to move anything around
+            if (newData->data > current->data) {
                 previous = current;
                 current = current->next;
             }
         }
-        //after this statement, the location is found so can insert it
         Node *temp = current;
         newData->next = current;
         previous->next = newData;

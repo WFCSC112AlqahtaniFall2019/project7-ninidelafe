@@ -47,6 +47,7 @@ bool Data:: operator < (Data hr){
     }
 }
 
+//Dont know if i need these or not
 bool Data::operator>(Data hr) {
     return happinessRank>hr.happinessRank;
 }
