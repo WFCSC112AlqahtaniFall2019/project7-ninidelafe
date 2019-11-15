@@ -20,18 +20,6 @@ public:
     bool operator > (Data& hr);
 
 
-    /*void setCountry (string c);
-    string getCountry();
-    void sethappinessRank (double r);
-    double gethappinessRank();
-    void sethappinessScore (double s);
-    double gethappinessScore();
-    void setGDP(double g);
-    double getGDP();
-    void setLifeExpectancy(double le);
-    double getLifeExpectancy();*/
-
-
 private:
     string country;
     double happinessRank;

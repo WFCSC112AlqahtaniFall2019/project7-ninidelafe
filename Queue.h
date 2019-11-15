@@ -13,7 +13,6 @@ public:
     void enqueue_tail(Data da);
     bool dequeue_head();
 
-
 private:
     Node* tail;
     //Node* front;

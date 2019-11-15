@@ -19,7 +19,7 @@ int main() {
     ofstream outQueue;
     ofstream outSorted;
 
-    in.open ("../WorldHappines2015.csv");
+    in.open ("../WorldHappiness2015.csv");
     outStack.open("Stack.txt");
     outQueue.open("Queue.txt");
     outSorted.open("Sorted.txt");
@@ -41,19 +41,19 @@ int main() {
         return 4;
     }
 
-//getline will go until the comma then will move on
-    /*string crty, haprate, hapscor, GDP, lifeExpec;
-    getline(in, crty, ',');
-    getline(in, haprate, ',');
-    getline(in, hapscor, ',');
-    getline(in, GDP, ',');
-    getline(in, lifeExpec);*/
+    cout<<"All files are opened!"<<endl<< "../WorldHappiness2015.csv is being read"<<endl;
 
-    int i =0;
+    //int i =0;
+
+    outQueue<<"Country: Happiness Rate, Happiness Score, GDP per Capita, Life Expectancy"<<endl;
+    outStack<<"Country: Happiness Rate, Happiness Score, GDP per Capita, Life Expectancy"<<endl;
+    outSorted<<"This list is sorted by GDP per Capita"<<endl;
+    outSorted<<"Country: Happiness Rate, Happiness Score, GDP per Capita, Life Expectancy"<<endl;
+
 
     while (!in.eof()) {
-        i++;
-        cout<<"In while loop! i= "<< i; //<< endl;
+        //i++;
+        //cout<<"In while loop! i= "<< i; //<< endl;
         //getline will go until the comma then will move on
         string crty, haprate, hapscor, GDP, lifeExpec;
         getline(in, crty, ',');
@@ -73,10 +73,14 @@ int main() {
         Data info = Data (crty, rating, score, gdp, life); //creates a Data object and inputs them as parameters
         topToBottom->push_head(info); //puts info into the stack
         line->enqueue_tail(info); //puts info in the queue
-        cout<<" country= "<< crty<<endl;
+        //cout<<" country= "<< crty<<endl;
         sortedList->insertSorted(info); //putting the information in the linkedlist
         other=info;
     }
+
+    cout<<"Writing data in stack inserted at head into Stack.txt"<<endl;
+    cout<<"Writing data in queue inserted at tail into Queue.txt"<<endl;
+    cout<<"Writing data in sorted linked list sorted by attribute into Sorted.txt"<<endl;
 
     topToBottom->print(outStack,other);
     line->print(outQueue,other);
@@ -89,7 +93,7 @@ int main() {
     outQueue.close();
     outSorted.close();
     outStack.close();
-    cout<<"Files are closed!"<<endl;
+    cout<<"All files are closed!"<<endl;
 
 
     return 0;

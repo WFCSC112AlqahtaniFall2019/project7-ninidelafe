@@ -10,6 +10,7 @@
 
 using namespace std;
 class Stack : public LinkedList {
+
 public:
     Stack(); //default constructor
     void push_head(Data& da);

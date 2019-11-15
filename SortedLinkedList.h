@@ -11,6 +11,7 @@
 
 using namespace std;
 class SortedLinkedList : public LinkedList {
+
 public:
     void insertSorted(Data& da);
 

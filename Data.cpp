@@ -54,36 +54,3 @@ bool Data::operator>=(Data& hr) {
 bool Data::operator>(Data& hr) {
     return this->GDPperCapita>hr.GDPperCapita;
 }
-
-
-/*//Dont know if i need these or not
-void Data::setCountry(string c) {
-    country = c;
-}
-string Data:: getCountry(){
-    return country;
-}
-void Data:: sethappinessRank (double r){
-    happinessRank = r;
-}
-double Data:: gethappinessRank(){
-    return happinessRank;
-}
-void Data:: sethappinessScore (double s){
-    happinessScore = s;
-}
-double Data:: gethappinessScore(){
-    return happinessScore;
-}
-void Data:: setGDP(double g){
-    GDPperCapita = g;
-}
-double Data:: getGDP(){
-    return GDPperCapita;
-}
-void Data::setLifeExpectancy(double le){
-    lifeExpectancy= le;
-}
-double Data:: getLifeExpectancy() {
-    return lifeExpectancy;
-}*/

@@ -27,7 +27,7 @@ void Stack::push_head(Data& da){
 //a member public function named “pop_head” removes a Data object pointed to by the head pointer; returns a boolean
 // with value true if the list is not empty, false if the list is empty.
 
-//removes
+//removes a data object pointed to by the head and returns true if the list has elements or false if it is empty
 bool Stack::pop_head(Data& da) {
     if (head==nullptr){
         //cout<<"Empty List"<<endl;

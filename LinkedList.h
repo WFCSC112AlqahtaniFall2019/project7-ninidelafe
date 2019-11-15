@@ -23,6 +23,7 @@ public:
     }
 };
 
+
 class LinkedList {
 protected:
     Node *head;

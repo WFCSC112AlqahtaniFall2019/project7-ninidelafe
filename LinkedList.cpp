@@ -8,7 +8,7 @@
 #include "LinkedList.h"
 using namespace std;
 
-
+//constructor
 LinkedList::LinkedList() {
     head = nullptr; // empty list
 }

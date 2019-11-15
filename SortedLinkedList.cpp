@@ -33,11 +33,12 @@ void SortedLinkedList::insertSorted(Data &da) {
             //newData->data > current->data
             if (current->data < newData->data) {
                 previous = current;
+                current = current->next;
+            } else {
+                break;
             }
-            current = current->next;
         }
 
-        Node *temp = current;
         newData->next = current;
         previous->next = newData;
 
